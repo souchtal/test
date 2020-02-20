@@ -28,5 +28,5 @@ if [ $RETURN -eq 1 ]; then
 	echo "Make sure you have run astyle with the following options:" >&2
 	echo $OPTIONS >&2
 fi
-
+echo "exited successfully"
 exit $RETURN
