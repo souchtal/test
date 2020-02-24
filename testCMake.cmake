@@ -1,4 +1,4 @@
-
+  
 # compatibility macro for cmake pre 2.8.6
 
 function(APPEND_PROPERTY TYPE)
