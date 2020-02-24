@@ -1,7 +1,6 @@
 #include  <stdio.h>
-int main ()
-{
+int main ()  {
 	printf("lol");
-	printf("lo2l");
+  printf("lo2l");
 	printf("test");
-}
+    } 

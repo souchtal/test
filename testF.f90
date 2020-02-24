@@ -10,7 +10,7 @@ program heat
 #else
    include 'mpif.h'
 #endif
-real(8), parameter :: PREC = 0.005
+   real(8), parameter :: PREC = 0.005
    integer, parameter :: ITER_TIMES = 2000
    integer, parameter :: ITER_OUT = 100
    integer, parameter :: WORKTAG = 50
@@ -22,10 +22,10 @@ real(8), parameter :: PREC = 0.005
 real(8) :: wtime, memSize, localerror, globalerror
    real(8), pointer :: g(:, :), h(:, :)
 
-   globalerror = 1
+        globalerror = 1
 
         call MPI_Init(err)
-        FTI_comm_world = MPI_COMM_WORLD
+   FTI_comm_world = MPI_COMM_WORLD
 call FTI_Init('config.fti', FTI_comm_world, err) ! modifies FTI_comm_world
   call MPI_Comm_size(FTI_comm_world, nbProcs, err)
    call MPI_Comm_rank(FTI_comm_world, rank, err)
@@ -69,7 +69,7 @@ call FTI_Init('config.fti', FTI_comm_world, err) ! modifies FTI_comm_world
    enddo
 
    if (rank == 0) then
-  print '("testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest")'
+  print '("testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest")'
     print '("Execution finished in ",F9.0," seconds.")', MPI_Wtime() - wtime
    endif
 
