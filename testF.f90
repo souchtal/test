@@ -10,9 +10,9 @@ program heat
 #else
    include 'mpif.h'
 #endif
-        real(8), parameter :: PREC = 0.005
-        integer, parameter :: ITER_TIMES = 2000
-integer, parameter :: ITER_OUT = 100
+   real(8), parameter :: PREC = 0.005
+   integer, parameter :: ITER_TIMES = 2000
+   integer, parameter :: ITER_OUT = 100
    integer, parameter :: WORKTAG = 50
    integer, parameter :: REDUCE = 5
    integer, parameter :: MEM_MB = 32
@@ -22,9 +22,9 @@ integer, parameter :: ITER_OUT = 100
    real(8) :: wtime, memSize, localerror, globalerror
    real(8), pointer :: g(:, :), h(:, :)
 
-   globalerror=1
+globalerro =1
 
-   call MPI_Init(err)
+                   call MPI_Init(err)
    FTI_comm_world = MPI_COMM_WORLD
    call FTI_Init('config.fti', FTI_comm_world, err) ! modifies FTI_comm_world
    call MPI_Comm_size(FTI_comm_world, nbProcs, err)
