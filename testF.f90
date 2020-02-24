@@ -22,11 +22,11 @@ program heat
    real(8) :: wtime, memSize, localerror, globalerror
    real(8), pointer :: g(:, :), h(:, :)
 
-        globalerro=1
+   globalerror=1
 
-    call MPI_Init(err)
-     FTI_comm_world = MPI_COMM_WORLD
-   call FTI_Init('config.fti', FTI_comm_world, err) ! modifies FTI_comm_world
+                call MPI_Init(err)
+                FTI_comm_world = MPI_COMM_WORLD
+                call FTI_Init('config.fti', FTI_comm_world, err) ! modifies FTI_comm_world
    call MPI_Comm_size(FTI_comm_world, nbProcs, err)
    call MPI_Comm_rank(FTI_comm_world, rank, err)
 
