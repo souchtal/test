@@ -1,7 +1,7 @@
   
 # compatibility macro for cmake pre 2.8.6
 
- function(APPEND_PROPERTY TYPE)
+  function(APPEND_PROPERTY TYPE)
 		set(APPEND_PROPERTY_TARGETS)
 	 set(APPEND_PROPERTY_PROPNAME)
   set(APPEND_PROPERTY_VALUES)
