@@ -21,7 +21,7 @@ program heat
                         integer, pointer  :: ptriter
          real(8) :: wtime, memSize, localerror, globalerror
     real(8), pointer :: g(:, :), h(:, :)
-
+ 
    globalerror=1
 
    call MPI_Init(err)
