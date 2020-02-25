@@ -17,10 +17,10 @@ program heat
    integer, parameter :: REDUCE = 5
    integer, parameter :: MEM_MB = 32
 
-     integer, target :: rank, nbProcs, iter, row, col, err, FTI_comm_world
-   integer, pointer  :: ptriter
-   real(8) :: wtime, memSize, localerror, globalerror
-                        real(8), pointer :: g(:, :), h(:, :)
+   integer, target :: rank, nbProcs, iter, row, col, err, FTI_comm_world
+                        integer, pointer  :: ptriter
+    real(8) :: wtime, memSize, localerror, globalerror
+    real(8), pointer :: g(:, :), h(:, :)
 
    globalerror=1
 
