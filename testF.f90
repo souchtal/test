@@ -18,11 +18,11 @@ program heat
    integer, parameter :: MEM_MB = 32
 
    integer, target :: rank, nbProcs, iter, row, col, err, FTI_comm_world
-                        integer, pointer  :: ptriter
-         real(8) :: wtime, memSize, localerror, globalerror
-    real(8), pointer :: g(:, :), h(:, :)
- 
-   globalerror=1
+   integer, pointer  :: ptriter
+   real(8) :: wtime, memSize, localerror, globalerror
+   real(8), pointer :: g(:, :), h(:, :)
+
+   globalerror = 1
 
    call MPI_Init(err)
    FTI_comm_world = MPI_COMM_WORLD
