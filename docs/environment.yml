@@ -1,0 +1,7 @@
+name: docu-docs
+
+channels:
+  - docu 
+
+dependencies:
+  - breathe
