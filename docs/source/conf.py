@@ -30,7 +30,8 @@ release = '1.2'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 sys.path.append( "/home/bscuser/Documents/breathe/test/docs/source" )
-extensions = ['sphinx.ext.pngmath', 'sphinx.ext.todo', 'breathe' ]
+#extensions = ['sphinx.ext.pngmath', 'sphinx.ext.todo', 'breathe' ]
+extensions = [ 'breathe' ]
 breathe_projects= {"docu": "/home/bscuser/Documents/breathe/test/doc/Doxygen/xml"}
 breathe_default_project = "docu"
 
