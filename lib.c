@@ -45,7 +45,18 @@
 
 
 
-/* integer bitwise AND */
+/*-------------------------------------------------------------------------*/
+/**
+  @brief      Recovers 'B' and 'asize' to 'B_chk' and 'asize_chk' from file,
+  using POSIX fread.
+  @param      Integer         x
+  @param      Integer     	  y 
+  
+
+  Before recovering B, the function checks if 'asize_chk' equals 'asize',
+  to prevent SIGSEGV. If not 'asize_chk' = 'asize' it returns -1.
+ **/
+/*-------------------------------------------------------------------------*/
 int  op_and 	(int x, int y) {
 	return x&y;
 }
