@@ -19,5 +19,5 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. doxygenfunction:: op_and
-   :project: docu
+.. .. doxygenfunction:: op_and
+..    :project: docu
