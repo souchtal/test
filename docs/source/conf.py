@@ -70,11 +70,12 @@ html_static_path = ['_static']
 #         file.write(filedata)
  
 # # Check if we're running on Read the Docs' servers
-# read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
  
 # breathe_projects = {}
  
-# if read_the_docs_build:
+if read_the_docs_build:
+	subprocess.call('cd /home/bscuser/Documents/breathe/test/doc/Doxygen; doxygen Doxyfile', shell=True)
 #     input_dir = '../CatCutifier'
 #     output_dir = 'build'
 #     configureDoxyfile(input_dir, output_dir)
