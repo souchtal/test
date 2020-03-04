@@ -53,6 +53,10 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+
+def setup(app):
+    app.add_stylesheet("main_stylesheet.css")
 
 html_logo  = '_static/fti_pic.jpeg'
 # Add any paths that contain custom static files (such as style sheets) here,
