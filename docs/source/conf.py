@@ -32,8 +32,7 @@ release = '1.2'
 sys.path.append( "/home/bscuser/Documents/breathe/test/docs/source" )
 #extensions = ['sphinx.ext.pngmath', 'sphinx.ext.todo', 'breathe' ]
 extensions = [ 'breathe' ]
-#breathe_projects= {"docu": "/home/bscuser/Documents/breathe/test/doc/Doxygen/xml"}
-breathe_projects= {"docu": "/home/bscuser/Documents/breathe/test/doc/Doxygen/xml/index.xml"}
+breathe_projects= {"docu": "/home/bscuser/Documents/breathe/test/doc/Doxygen/xml"}
 breathe_default_project = "docu"
 
 
