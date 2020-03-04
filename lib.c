@@ -49,8 +49,8 @@
 /**
   @brief      Recovers 'B' and 'asize' to 'B_chk' and 'asize_chk' from file,
   using POSIX fread.
-  @param      Integer         x
-  @param      Integer     	  y 
+  @param      x         first operand
+  @param      y     	second operand
   
 
   Before recovering B, the function checks if 'asize_chk' equals 'asize',

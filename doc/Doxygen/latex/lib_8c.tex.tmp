@@ -1,0 +1,78 @@
+\hypertarget{lib_8c}{}\doxysection{/home/bscuser/\+Documents/breathe/test/lib.c File Reference}
+\label{lib_8c}\index{/home/bscuser/Documents/breathe/test/lib.c@{/home/bscuser/Documents/breathe/test/lib.c}}
+{\ttfamily \#include \char`\"{}lib.\+h\char`\"{}}\newline
+Include dependency graph for lib.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{lib_8c_a42560cd874ed120a4c3c55e007a02a4f}{op\+\_\+and}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Recovers \textquotesingle{}B\textquotesingle{} and \textquotesingle{}asize\textquotesingle{} to \textquotesingle{}B\+\_\+chk\textquotesingle{} and \textquotesingle{}asize\+\_\+chk\textquotesingle{} from file, using P\+O\+S\+IX fread. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lib_8c_afd23e01f5f060003f00cce70f242573e}{op\+\_\+or}} (int x, int y)
+\item 
+int \mbox{\hyperlink{lib_8c_ad51dda6ee99a38386c1d193b822f9ab7}{op\+\_\+xor}} (int x, int y)
+\item 
+int \mbox{\hyperlink{lib_8c_a6c84955443c1c0de671698dfe0a1304f}{op\+\_\+xnor}} (int x, int y)
+\item 
+int \mbox{\hyperlink{lib_8c_ac88b52dd457ba319ed69925ab1ee0b1e}{op\+\_\+add}} (int x, int y)
+\item 
+int \mbox{\hyperlink{lib_8c_ad90c47d09785df494854bb12fece0202}{op\+\_\+sub}} (int x, int y)
+\item 
+int \mbox{\hyperlink{lib_8c_a7ace187bfb5f3a34e8544d7aeab2327e}{op\+\_\+mul}} (int x, int y)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lib_8c_ac88b52dd457ba319ed69925ab1ee0b1e}\label{lib_8c_ac88b52dd457ba319ed69925ab1ee0b1e}} 
+\index{lib.c@{lib.c}!op\_add@{op\_add}}
+\index{op\_add@{op\_add}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{op\_add()}{op\_add()}}
+{\footnotesize\ttfamily int op\+\_\+add (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8c_a42560cd874ed120a4c3c55e007a02a4f}\label{lib_8c_a42560cd874ed120a4c3c55e007a02a4f}} 
+\index{lib.c@{lib.c}!op\_and@{op\_and}}
+\index{op\_and@{op\_and}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{op\_and()}{op\_and()}}
+{\footnotesize\ttfamily int op\+\_\+and (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Recovers \textquotesingle{}B\textquotesingle{} and \textquotesingle{}asize\textquotesingle{} to \textquotesingle{}B\+\_\+chk\textquotesingle{} and \textquotesingle{}asize\+\_\+chk\textquotesingle{} from file, using P\+O\+S\+IX fread. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & first operand \\
+\hline
+{\em y} & second operand\\
+\hline
+\end{DoxyParams}
+Before recovering B, the function checks if \textquotesingle{}asize\+\_\+chk\textquotesingle{} equals \textquotesingle{}asize\textquotesingle{}, to prevent S\+I\+G\+S\+E\+GV. If not \textquotesingle{}asize\+\_\+chk\textquotesingle{} = \textquotesingle{}asize\textquotesingle{} it returns -\/1. \mbox{\Hypertarget{lib_8c_a7ace187bfb5f3a34e8544d7aeab2327e}\label{lib_8c_a7ace187bfb5f3a34e8544d7aeab2327e}} 
+\index{lib.c@{lib.c}!op\_mul@{op\_mul}}
+\index{op\_mul@{op\_mul}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{op\_mul()}{op\_mul()}}
+{\footnotesize\ttfamily int op\+\_\+mul (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8c_afd23e01f5f060003f00cce70f242573e}\label{lib_8c_afd23e01f5f060003f00cce70f242573e}} 
+\index{lib.c@{lib.c}!op\_or@{op\_or}}
+\index{op\_or@{op\_or}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{op\_or()}{op\_or()}}
+{\footnotesize\ttfamily int op\+\_\+or (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8c_ad90c47d09785df494854bb12fece0202}\label{lib_8c_ad90c47d09785df494854bb12fece0202}} 
+\index{lib.c@{lib.c}!op\_sub@{op\_sub}}
+\index{op\_sub@{op\_sub}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{op\_sub()}{op\_sub()}}
+{\footnotesize\ttfamily int op\+\_\+sub (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8c_a6c84955443c1c0de671698dfe0a1304f}\label{lib_8c_a6c84955443c1c0de671698dfe0a1304f}} 
+\index{lib.c@{lib.c}!op\_xnor@{op\_xnor}}
+\index{op\_xnor@{op\_xnor}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{op\_xnor()}{op\_xnor()}}
+{\footnotesize\ttfamily int op\+\_\+xnor (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lib_8c_ad51dda6ee99a38386c1d193b822f9ab7}\label{lib_8c_ad51dda6ee99a38386c1d193b822f9ab7}} 
+\index{lib.c@{lib.c}!op\_xor@{op\_xor}}
+\index{op\_xor@{op\_xor}!lib.c@{lib.c}}
+\doxysubsubsection{\texorpdfstring{op\_xor()}{op\_xor()}}
+{\footnotesize\ttfamily int op\+\_\+xor (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+

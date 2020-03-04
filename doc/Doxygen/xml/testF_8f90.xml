@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.18">
+  <compounddef id="testF_8f90" kind="file" language="Fortran">
+    <compoundname>testF.f90</compoundname>
+    <innernamespace refid="namespaceFTI">FTI</innernamespace>
+    <innernamespace refid="namespaceMPI">MPI</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="testF_8f90_1a5cfe670f3cad7d278daf16ab7a7bcf92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>program</type>
+        <definition>program heat</definition>
+        <argsstring></argsstring>
+        <name>heat</name>
+        <briefdescription>
+<para>Heat distribution code to test FTI Fortran. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Julien Bigot </para>
+</simplesect>
+<simplesect kind="date"><para>August, 2014 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bscuser/Documents/breathe/test/testF.f90" line="6" column="1" bodyfile="/home/bscuser/Documents/breathe/test/testF.f90" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="testF_8f90_1af49a0dd3bc385c0c17a1e271338256ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine heat::initdata</definition>
+        <argsstring>(h, rank)</argsstring>
+        <name>initdata</name>
+        <param>
+          <type>h</type>
+          <defname>h</defname>
+        </param>
+        <param>
+          <type>rank</type>
+          <defname>rank</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bscuser/Documents/breathe/test/testF.f90" line="84" column="1" bodyfile="/home/bscuser/Documents/breathe/test/testF.f90" bodystart="85" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="testF_8f90_1a6925df0b1d4aec2010fab84b230210db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine heat::dowork</definition>
+        <argsstring>(numprocs, rank, g, h, localerror)</argsstring>
+        <name>dowork</name>
+        <param>
+          <type>numprocs</type>
+          <defname>numprocs</defname>
+        </param>
+        <param>
+          <type>rank</type>
+          <defname>rank</defname>
+        </param>
+        <param>
+          <type>g</type>
+          <defname>g</defname>
+        </param>
+        <param>
+          <type>h</type>
+          <defname>h</defname>
+        </param>
+        <param>
+          <type>localerror</type>
+          <defname>localerror</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/bscuser/Documents/breathe/test/testF.f90" line="101" column="1" bodyfile="/home/bscuser/Documents/breathe/test/testF.f90" bodystart="102" bodyend="145"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">program</highlight><highlight class="normal"><sp/><ref refid="testF_8f90_1a5cfe670f3cad7d278daf16ab7a7bcf92" kindref="member">heat</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal">fti</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MPI_USE_HEADER</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal">mpi</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/><sp/>include<sp/></highlight><highlight class="stringliteral">&apos;mpif.h&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"></highlight><highlight class="keywordtype"><sp/><sp/><sp/>real</highlight><highlight class="normal">(8),<sp/></highlight><highlight class="keywordtype">parameter</highlight><highlight class="normal"><sp/>::<sp/>PREC<sp/>=<sp/>0.005</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">parameter</highlight><highlight class="normal"><sp/>::<sp/>ITER_TIMES<sp/>=<sp/>2000</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">parameter</highlight><highlight class="normal"><sp/>::<sp/>ITER_OUT<sp/>=<sp/>100</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">parameter</highlight><highlight class="normal"><sp/>::<sp/>WORKTAG<sp/>=<sp/>50</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">parameter</highlight><highlight class="normal"><sp/>::<sp/>REDUCE<sp/>=<sp/>5</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">parameter</highlight><highlight class="normal"><sp/>::<sp/>MEM_MB<sp/>=<sp/>32</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">target</highlight><highlight class="normal"><sp/>::<sp/>rank,<sp/>nbProcs,<sp/>iter,<sp/>row,<sp/>col,<sp/>err,<sp/>FTI_comm_world</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">pointer</highlight><highlight class="normal"><sp/><sp/>::<sp/>ptriter</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype"><sp/><sp/><sp/>real</highlight><highlight class="normal">(8)<sp/>::<sp/>wtime,<sp/>memSize,<sp/>localerror,<sp/>globalerror</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype"><sp/><sp/><sp/>real</highlight><highlight class="normal">(8),<sp/></highlight><highlight class="keywordtype">pointer</highlight><highlight class="normal"><sp/>::<sp/>g(:,<sp/>:),<sp/>h(:,<sp/>:)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>globalerror<sp/>=<sp/>1</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_init(err)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/>fti_comm_world<sp/>=<sp/>mpi_comm_world</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">fti_init(</highlight><highlight class="stringliteral">&apos;config.fti&apos;</highlight><highlight class="normal">,<sp/>fti_comm_world,<sp/>err)<sp/></highlight><highlight class="comment">!<sp/>modifies<sp/>FTI_comm_world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_comm_size(fti_comm_world,<sp/>nbprocs,<sp/>err)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_comm_rank(fti_comm_world,<sp/>rank,<sp/>err)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/>row<sp/>=<sp/>sqrt((mem_mb*1024.0*512.0*nbprocs)/8)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/>col<sp/>=<sp/>(row/nbprocs)<sp/>+<sp/>3</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">allocate</highlight><highlight class="normal"><sp/>(g(row,<sp/>col))</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">allocate</highlight><highlight class="normal"><sp/>(h(row,<sp/>col))</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal"><ref refid="testF_8f90_1af49a0dd3bc385c0c17a1e271338256ca" kindref="member">initdata</ref>(g,<sp/>rank)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>memsize<sp/>=<sp/>row*col*2*8/(1024*1024)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>print<sp/></highlight><highlight class="stringliteral">&apos;(&quot;Local<sp/>data<sp/>size<sp/>is<sp/>&quot;,I5,&quot;<sp/>x<sp/>&quot;,I5,&quot;<sp/>=<sp/>&quot;,F5.0,&quot;<sp/>MB<sp/>(&quot;,I5,&quot;).&quot;)&apos;</highlight><highlight class="normal">,<sp/>&amp;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row,<sp/>col,<sp/>memsize,<sp/>mem_mb</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>print<sp/></highlight><highlight class="stringliteral">&apos;(&quot;Target<sp/>precision<sp/>:<sp/>&quot;,F9.5)&apos;</highlight><highlight class="normal">,<sp/>prec</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/>ptriter<sp/>=&gt;<sp/>iter</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">fti_protect(0,<sp/>ptriter,<sp/>err)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">fti_protect(2,<sp/>g,<sp/>err)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">fti_protect(1,<sp/>h,<sp/>err)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/>wtime<sp/>=<sp/>mpi_wtime()</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>iter<sp/>=<sp/>1,<sp/>iter_times</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">fti_snapshot(err)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal"><ref refid="testF_8f90_1a6925df0b1d4aec2010fab84b230210db" kindref="member">dowork</ref>(nbprocs,<sp/>rank,<sp/>g,<sp/>h,<sp/>localerror)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((mod(iter,<sp/>iter_out)<sp/>==<sp/>0)<sp/>.and.<sp/>(rank<sp/>==<sp/>0))<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print<sp/></highlight><highlight class="stringliteral">&apos;(&quot;Step<sp/>:<sp/>&quot;,I5,&quot;,<sp/>error<sp/>=<sp/>&quot;,F9.5)&apos;</highlight><highlight class="normal">,<sp/>iter,<sp/>globalerror</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mod(iter,<sp/>reduce)<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_allreduce(localerror,<sp/>globalerror,<sp/>1,<sp/>mpi_real8,<sp/>mpi_max,<sp/>fti_comm_world,<sp/>err)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(globalerror<sp/>&lt;<sp/>prec)<sp/></highlight><highlight class="keywordflow">exit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/>enddo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>print<sp/></highlight><highlight class="stringliteral">&apos;(&quot;testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest&quot;)&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>print<sp/></highlight><highlight class="stringliteral">&apos;(&quot;Execution<sp/>finished<sp/>in<sp/>&quot;,F9.0,&quot;<sp/>seconds.&quot;)&apos;</highlight><highlight class="normal">,<sp/>mpi_wtime()<sp/>-<sp/>wtime</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">deallocate</highlight><highlight class="normal"><sp/>(h)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">deallocate</highlight><highlight class="normal"><sp/>(g)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">fti_finalize(err)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_finalize(err)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">contains</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">subroutine<sp/></highlight><highlight class="normal"><ref refid="testF_8f90_1af49a0dd3bc385c0c17a1e271338256ca" kindref="member">initdata</ref>(h,<sp/>rank)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype"><sp/><sp/><sp/><sp/><sp/><sp/>real</highlight><highlight class="normal">(8),<sp/></highlight><highlight class="keywordtype">pointer</highlight><highlight class="normal"><sp/>::<sp/>h(:,<sp/>:)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">intent(IN)</highlight><highlight class="normal"><sp/>::<sp/>rank</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal"><sp/>::<sp/>i</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>h(:,<sp/>:)<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>i<sp/>=<sp/></highlight><highlight class="keyword">size</highlight><highlight class="normal">(h,<sp/>1)/10,<sp/>9*</highlight><highlight class="keyword">size</highlight><highlight class="normal">(h,<sp/>1)/10</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h(i,<sp/>1)<sp/>=<sp/>100</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enddo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">endsubroutine</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">subroutine<sp/></highlight><highlight class="normal"><ref refid="testF_8f90_1a6925df0b1d4aec2010fab84b230210db" kindref="member">dowork</ref>(numprocs,<sp/>rank,<sp/>g,<sp/>h,<sp/>localerror)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">intent(IN)</highlight><highlight class="normal"><sp/>::<sp/>numprocs</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">intent(IN)</highlight><highlight class="normal"><sp/>::<sp/>rank</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype"><sp/><sp/><sp/><sp/><sp/><sp/>real</highlight><highlight class="normal">(8),<sp/></highlight><highlight class="keywordtype">pointer</highlight><highlight class="normal"><sp/>::<sp/>g(:,<sp/>:)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype"><sp/><sp/><sp/><sp/><sp/><sp/>real</highlight><highlight class="normal">(8),<sp/></highlight><highlight class="keywordtype">pointer</highlight><highlight class="normal"><sp/>::<sp/>h(:,<sp/>:)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype"><sp/><sp/><sp/><sp/><sp/><sp/>real</highlight><highlight class="normal">(8),<sp/></highlight><highlight class="keywordtype">intent(OUT)</highlight><highlight class="normal"><sp/>::<sp/>localerror</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal"><sp/>::<sp/>i,<sp/>j,<sp/>err,<sp/>req1(2),<sp/>req2(2)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">integer</highlight><highlight class="normal"><sp/>::<sp/>status1(MPI_STATUS_SIZE,<sp/>2),<sp/>status2(MPI_STATUS_SIZE,<sp/>2)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>localerror<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>h(:,<sp/>:)<sp/>=<sp/>g(:,<sp/>:)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>&gt;<sp/>0)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_isend(g(1,<sp/>2),<sp/></highlight><highlight class="keyword">size</highlight><highlight class="normal">(g,<sp/>1),<sp/>mpi_real8,<sp/>rank<sp/>-<sp/>1,<sp/>worktag,<sp/>fti_comm_world,<sp/>req1(1),<sp/>err)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_irecv(h(1,<sp/>1),<sp/></highlight><highlight class="keyword">size</highlight><highlight class="normal">(h,<sp/>1),<sp/>mpi_real8,<sp/>rank<sp/>-<sp/>1,<sp/>worktag,<sp/>fti_comm_world,<sp/>req1(2),<sp/>err)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>&lt;<sp/>numprocs<sp/>-<sp/>1)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_isend(g(1,<sp/>ubound(g,<sp/>2)<sp/>-<sp/>1),<sp/></highlight><highlight class="keyword">size</highlight><highlight class="normal">(g,<sp/>1),<sp/>mpi_real8,<sp/>rank<sp/>+<sp/>1,<sp/>worktag,<sp/>fti_comm_world,<sp/>req2(1),<sp/>err)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_irecv(h(1,<sp/>ubound(h,<sp/>2)),<sp/></highlight><highlight class="keyword">size</highlight><highlight class="normal">(h,<sp/>1),<sp/>mpi_real8,<sp/>rank<sp/>+<sp/>1,<sp/>worktag,<sp/>fti_comm_world,<sp/>req2(2),<sp/>err)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!call<sp/>MPI_Isend(g(ubound(g,<sp/>1)-1,<sp/>1),<sp/>size(g,<sp/>1),<sp/>MPI_REAL8,<sp/>rank+1,<sp/>WORKTAG,<sp/>FTI_comm_world,<sp/>req2(1),<sp/>err)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!call<sp/>MPI_Irecv(h(ubound(h,<sp/>1)<sp/><sp/>,<sp/>1),<sp/>size(h,<sp/>1),<sp/>MPI_REAL8,<sp/>rank+1,<sp/>WORKTAG,<sp/>FTI_comm_world,<sp/>req2(2),<sp/>err)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>&gt;<sp/>0)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_waitall(2,<sp/>req1,<sp/>status1,<sp/>err)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>&lt;<sp/>numprocs<sp/>-<sp/>1)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">mpi_waitall(2,<sp/>req2,<sp/>status2,<sp/>err)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>lbound(h,<sp/>2)<sp/>+<sp/>1,<sp/>ubound(h,<sp/>2)<sp/>-<sp/>1</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>lbound(h,<sp/>1),<sp/>ubound(h,<sp/>1)<sp/>-<sp/>1</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>g(i,<sp/>j)<sp/>=<sp/>0.25*(h(i<sp/>-<sp/>1,<sp/>j)<sp/>+<sp/>h(i<sp/>+<sp/>1,<sp/>j)<sp/>+<sp/>h(i,<sp/>j<sp/>-<sp/>1)<sp/>+<sp/>h(i,<sp/>j<sp/>+<sp/>1))</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(localerror<sp/>&lt;<sp/>abs(g(i,<sp/>j)<sp/>-<sp/>h(i,<sp/>j)))<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>localerror<sp/>=<sp/>abs(g(i,<sp/>j)<sp/>-<sp/>h(i,<sp/>j))</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enddo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>enddo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rank<sp/>==<sp/>(numprocs<sp/>-<sp/>1))<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>g(ubound(g,<sp/>1),<sp/>:)<sp/>=<sp/>g(ubound(g,<sp/>1)<sp/>-<sp/>1,<sp/>:)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">endsubroutine</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">endprogram</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/bscuser/Documents/breathe/test/testF.f90"/>
+  </compounddef>
+</doxygen>
