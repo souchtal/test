@@ -1,9 +1,9 @@
 #!/bin/bash
 #   
-#   @file   	pre-commit
-#   @author 	Sawsane Ouchtal (sawsaneouchtal@gmail.com)
-#   @date   	February, 2020
-#   @brief  	Checks formatting of C/Fortran/CMake files before local commit
+#   @file   pre-commit
+#   @author Sawsane Ouchtal (sawsaneouchtal@gmail.com)
+#   @date   February, 2020
+#   @brief  Checks formatting of C/Fortran/CMake files before local commit
 #
 
 OPTIONS_C="" 									#cpplint has embedded formatting options
@@ -31,11 +31,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;36m'
 NC='\033[0m' # No Color
 
-#
-#This function iterates through the files and checks their format 
-#given their extension and the formatting options per language
-#
-check_files(){
+check_and_format(){
 	eval FILE_EXTENSIONS="$1" 		#file extension
 	eval CHECKER_OPTIONS="$2" 		#checker's options
 	eval CHECKER="$3"				#checker's name
@@ -57,7 +53,7 @@ check_files(){
 	done
 }
 
-#Check installation of the code checkers
+#start of script
 for CHECKER in "${CHECKERS[@]}"; do
 	which $CHECKER > /dev/null
 	if [ $? -ne 0 ]; then 
@@ -76,13 +72,13 @@ if [[ $COUNTER < 3 ]]; then
 	exit 1
 elif [ $COUNTER -eq 3 ]; then
 	#C Files
-	check_files "\${C_EXTENSIONS}" "\${OPTIONS_C}" "\${CPPLINT}" "C" 
+	check_and_format "\${C_EXTENSIONS}" "\${OPTIONS_C}" "\${CPPLINT}" "C" 
 
 	#FORTRAN Files 
-	check_files "\${FORTRAN_EXTENSIONS}" "\${OPTIONS_FORTRAN}" "\${FPRETTIFY}" "FORTRAN" 
+	check_and_format "\${FORTRAN_EXTENSIONS}" "\${OPTIONS_FORTRAN}" "\${FPRETTIFY}" "FORTRAN" 
 
 	#CMake Files 
-	check_files "\${CMAKE_EXTENSIONS}" "\${OPTIONS_CMAKE}" "\${CMAKE}" "CMake" 
+	check_and_format "\${CMAKE_EXTENSIONS}" "\${OPTIONS_CMAKE}" "\${CMAKE}" "CMake" 
 fi
 echo -e "\n\n"
 echo -e "########################### ${BLUE}Commit${NC} #######################"
@@ -95,4 +91,3 @@ else
 	echo -e "${GREEN}[Info]${NC} Ready to commit..."
 	exit 0
 fi
-
